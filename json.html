@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Data from JSON</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #2e3b4e;
+        }
+
+        h2 {
+            color: #3498db;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .card {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+
+        .card h3 {
+            margin: 0;
+            font-size: 1.2em;
+        }
+
+        .card p {
+            font-size: 1em;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="page-title"></h1>
+
+    <div id="content"></div>
+
+    <script>
+        // Fetch the JSON data and display it on the page
+        fetch('data.json')
+            .then(response => response.json())
+            .then(data => {
+                // Set the page title from the JSON data
+                document.getElementById('page-title').textContent = data.title;
+
+                // Get the content container
+                const contentDiv = document.getElementById('content');
+
+                // Display the banner section
+                const banner = document.createElement('div');
+                banner.classList.add('banner');
+                const bannerHeading = document.createElement('h2');
+                bannerHeading.textContent = data.banner.heading;
+                const bannerSubheading = document.createElement('p');
+                bannerSubheading.textContent = data.banner.subheading;
+                banner.appendChild(bannerHeading);
+                banner.appendChild(bannerSubheading);
+                contentDiv.appendChild(banner);
+
+                // Display each section (Blogs, Projects, etc.)
+                data.sections.forEach(section => {
+                    const sectionDiv = document.createElement('div');
+                    sectionDiv.classList.add('section');
+                    const sectionTitle = document.createElement('h2');
+                    sectionTitle.textContent = section.sectionTitle;
+                    sectionDiv.appendChild(sectionTitle);
+
+                    // Display each card (individual blog or project)
+                    section.cards.forEach(card => {
+                        const cardDiv = document.createElement('div');
+                        cardDiv.classList.add('card');
+                        const cardTitle = document.createElement('h3');
+                        cardTitle.textContent = card.title;
+                        const cardDescription = document.createElement('p');
+                        cardDescription.textContent = card.description;
+                        cardDiv.appendChild(cardTitle);
+                        cardDiv.appendChild(cardDescription);
+                        sectionDiv.appendChild(cardDiv);
+                    });
+
+                    contentDiv.appendChild(sectionDiv);
+                });
+            })
+            .catch(error => {
+                console.error('Error loading data:', error);
+            });
+    </script>
+</body>
+
+</html>

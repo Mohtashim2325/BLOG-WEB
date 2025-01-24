@@ -1,0 +1,36 @@
+{
+    "title": "BLOG",
+    "banner": {
+      "heading": "<DEVpro/>",
+      "subheading": "Learn coding from scratch"
+    },
+    "sections": [
+      {
+        "sectionTitle": "All Blogs",
+        "cards": [
+          {
+            "title": "The Blog Title Here",
+            "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam, debitis. Nulla, saepe laborum odio perferendis nam reiciendis quia vitae optio quidem distinctio laboriosam assumenda debitis facilis tenetur modi in, quam quas dolorem nesciunt?"
+          },
+          {
+            "title": "Another Blog Title",
+            "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia odit tempore vero? Error, iure pariatur."
+          }
+        ]
+      },
+      {
+        "sectionTitle": "All Projects Here",
+        "cards": [
+          {
+            "title": "The Project Title Here",
+            "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla, saepe laborum odio perferendis nam reiciendis."
+          },
+          {
+            "title": "Another Project Title",
+            "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia odit tempore vero? Error, iure pariatur."
+          }
+        ]
+      }
+    ]
+  }
+  
